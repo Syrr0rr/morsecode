@@ -11,31 +11,30 @@ morsecode = {
 }
 reverse_morse = {value: key for key, value in morsecode.items()}
 
-
 def letters_to_morse():
-    user_input = input("Normal text to convert to Morse: ").lower()
+    '''converts text to morse code'''
+    user_input = input("Text: ").lower()
     completed = []
     for letter in user_input:
         completed.append(morsecode.get(letter, "?"))
     print(" ".join(completed))
 
-
 def morse_to_letters():
+    '''converts morse code to text'''
     user_input = input("Enter Morse code (separate letters with spaces, words with /): ")
-    result = ""
+    result = "" 
     for code in user_input.split():
         result += reverse_morse.get(code, "?")
     print("Translated text:", result)
 
-
 while True:
     choice = input("""
-    Morse code to Letters (1)
-    Letters to morse code (2)
+    Letters to morse code (1)
+    Morse code to Letters (2)
     Other to quit: """)
-    if choice == '1':
+    if choice == '2':
         morse_to_letters()
-    elif choice == '2':
+    elif choice == '1':
         letters_to_morse()
     else:
-        break
+      break
